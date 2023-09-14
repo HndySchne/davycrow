@@ -1,0 +1,43 @@
+// Décalage du header de gauche à droite dès qu'on clique sur le bouton "liste" 
+@keyframes header-transform {
+    0%{
+        transform: translatex(-300px);
+    }
+    100%{
+        transform: translatex(0px);
+    }
+  }
+
+// Disparition du header de droite à gauche dès qu'on clique sur le bouton "liste" 
+@keyframes header-transform-reverse {
+    0%{
+        transform: translatex(0px);
+    }
+    100%{
+        transform: translatex(-300px);
+    }
+  }
+
+//--------------------------------------------------//
+// Décalage du corps du site de gauche à droite dès qu'on clique sur le bouton "liste" 
+// pour accopagner l'animation du Headder
+@keyframes body-transform {
+    0%{
+        transform: translatex(0px);
+    }
+    100%{
+        transform: translatex(200px);
+    }
+  }
+
+// Décalage du corps du site de droite à gauche dès qu'on clique sur le bouton "liste" 
+// pour accopagner l'animation du Headder
+  @keyframes body-transform-reverse {
+    0%{
+        transform: translatex(200px);
+    }
+    100%{
+        transform: translatex(0px);
+    }
+  }
+  

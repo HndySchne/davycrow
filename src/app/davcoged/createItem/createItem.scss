@@ -1,0 +1,8 @@
+.validation{
+    visibility: hidden;
+    &--visible{
+        visibility: visible;
+        height: 500px;
+        background-color: green;
+    }
+}

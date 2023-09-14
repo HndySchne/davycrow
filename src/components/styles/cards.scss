@@ -1,0 +1,36 @@
+.card-container {
+    margin: 15px 0px 15px 15px;
+    background-color: #FFFF;
+    box-shadow: 0px 3px 5px 0px rgba(0, 0, 0, 0.5);
+    width: 90%;
+    &:hover{
+        box-shadow: 0px 23px 25px 0px rgba(0, 0, 0, 0.5);
+    }
+
+    .card-product__img {
+            width: 100%;
+            height: 100%;
+
+        img{
+            object-fit: cover;
+            width: 100%;
+            height: 400px;
+        }
+    }
+}
+
+.product-description__text{
+    display: flex;
+    justify-content: center;
+    p{
+        font-weight: bolder;
+        font-style: italic;
+        font-size: 22px;
+    }
+}
+
+// retirer les styles par defaut des liens "a"
+a {
+    text-decoration: none;
+    color: black;
+}

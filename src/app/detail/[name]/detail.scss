@@ -1,0 +1,80 @@
+@import "../../../components/styles/utils/mixin.scss";
+
+.detail-images {
+    visibility: hidden;
+    width: 0px;
+    border: solid black;
+}
+
+.detail-caroussel {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 500px;
+    img {
+        object-fit: cover;
+        position: absolute;
+        width: 90%;
+        height: 450px;
+        border-radius: 15px;
+        box-shadow: 0px 3px 5px 0px rgba(0, 0, 0, 0.5);
+    }
+}
+
+.detail-description {
+    visibility: hidden;
+    width: 0px;
+    border: solid black;
+}
+
+.buttons{
+    z-index: 1000000;
+    height: 60px;
+    width: 60px;
+    border-radius: 50%;
+    position: absolute;
+}
+
+.button{
+    &--1{
+        left: 20px;
+        top: 225px;
+    }
+    &--2{
+        right: 20px;
+        top: 225px;
+    }
+}
+
+// -----------------------------------------//
+// Rendre visible ou pas les photos du caroussele en fonction de leur position 
+.visible {
+    opacity: 1;
+}
+
+.notVisible {
+    opacity: 0;
+}
+// -----------------------------------------//
+// conteneur des deux boutons du bas 
+.buttons-container{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding-bottom: 20px;
+    .buttons-container{
+        &__detail{
+            @include buttons(#d52349);
+            &:hover{
+                box-shadow: 0px 3px 5px 0px rgba(0, 0, 0, 0.5);
+            }    
+        }
+        &__command{
+            @include buttons();
+            &:hover{
+                box-shadow: 0px 3px 5px 0px rgba(0, 0, 0, 0.5);
+            }    
+        }
+    }
+
+}
