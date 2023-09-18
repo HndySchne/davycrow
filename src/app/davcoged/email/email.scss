@@ -1,0 +1,21 @@
+@import '../createItem/createItem.scss';
+@import '../davcoged.scss'; 
+
+.messages-containers{
+    width: 100%; 
+}
+
+.message-container{
+    border: solid black 1px;
+    margin: 15px;
+    width: 90%; 
+    h4{
+        margin: 5px;
+    }
+
+    p{
+        width: 95%; 
+        overflow-wrap: break-word;
+        margin: 5px;
+    }
+}

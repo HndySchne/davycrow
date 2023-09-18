@@ -4,7 +4,7 @@ import { useParams } from "next/navigation";
 
 export default function contact() {
     const params = useParams();
-    const ID_URL: string = params.name;
+    const ID_URL: string = params.name.toString();
 
     async function onSubmit(event: React.FormEvent<HTMLFormElement>) {
         event.preventDefault()
@@ -27,7 +27,7 @@ export default function contact() {
         <form onSubmit={onSubmit}>
         <div className="contact-container__input">
             <label htmlFor="title">Article</label>
-            <input type="text" id="title" name="title" defaultValue={ID_URL} required disabled />
+            <input type="text" id="title" name="title" value={ID_URL} required readOnly />
           </div>
           <div className="contact-container__input">
             <label htmlFor="firstName">Prénom</label>

@@ -1,5 +1,6 @@
 "use client";
-import { setCookie } from 'cookies-next';
+import { setCookie } from "cookies-next";
+import "./login.scss"
 
 type Response = {
   id: string;
@@ -7,19 +8,24 @@ type Response = {
 };
 
 export default function contact() {
+  async function onSubmit(event: React.FormEvent<HTMLFormElement>) {
+    event.preventDefault();
 
-    async function onSubmit(event: React.FormEvent<HTMLFormElement>) {
-        event.preventDefault()
-     
-        const formData = new FormData(event.currentTarget)
-        console.log(formData);
-        const response = fetch("http://localhost:3000/api/auth/login", {
-          method: 'POST',
-          body: formData,
-        }).then(res => res.json()).then(res => {return res as Response})
+    const formData = new FormData(event.currentTarget);
+    console.log(formData);
+    const response = fetch("http://localhost:3000/api/auth/login", {
+      method: "POST",
+      body: formData,
+    })
+      .then((res) => res.json())
+      .then((res) => {
+        return res as Response;
+      });
 
-        setCookie('jwt', (await response).token);
-      }
+    setCookie("jwt", (await response).token);
+    // retour à la page principale
+    window.location.href = "/davcoged";
+  }
 
   return (
     <main>
@@ -27,7 +33,7 @@ export default function contact() {
         <h2>LOGIN</h2>
         <form onSubmit={onSubmit}>
           <div className="contact-container__input">
-            <label htmlFor="email">email</label>
+            <label htmlFor="email">Email</label>
             <input type="email" id="email" name="email" required />
           </div>
           <div className="contact-container__input">

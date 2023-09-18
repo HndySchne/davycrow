@@ -2,6 +2,7 @@
 import Link from "next/link";
 import React, { useEffect, useState } from "react";
 import Cards from "@/components/cards";
+import './davcoged.scss'; 
 
 export default function Home() {
   const [item, setItem] = useState([]);
@@ -17,6 +18,7 @@ export default function Home() {
     url: string;
   }
   
+  // premier appel sur la page 
   useEffect(() => {
     fetch("http://localhost:3000/api/products", { method: "GET",
     headers: {
@@ -31,18 +33,14 @@ export default function Home() {
       });
   }, []);
 
-  console.log("item :", item);
-
   // supression de l'item avec la clé ID
   const supressItem = async (id: string) => {
     console.log(id);
     const res = await fetch(`http://localhost:3000/api/products/${id}`, {
       method: "DELETE",
     });
-    console.log("réponse supression : ", res);
 
-    // appel de la lecture
-    console.log("appel lecture: ", res);
+    // appel de la lecture pour mise à jour de la page 
     fetchData();
   };
 
@@ -58,20 +56,19 @@ export default function Home() {
       redirect: "manual",
     });
     const data = await response.json();
-    console.log("données de lecture :", data);
     setItem(data);
   };
 
   return (
     <main>
-      <div className="message">
+      <div className="buttons-container">
         <Link href={"/davcoged/email"}>
-          <button>messagerie</button>
+          <button className="buttons-container__detail">messagerie</button>
         </Link>
       </div>
-      <div className="Create-item">
+      <div className="buttons-container">
         <Link href={"/davcoged/createItem"}>
-          <button>Creer item</button>
+          <button className="buttons-container__detail">Creer item</button>
         </Link>
       </div>
       <div className="items">
@@ -86,6 +83,7 @@ export default function Home() {
                 description={index.description}
                 pictures={index.url}
               />
+              <div className="buttons-container">
               <Link href={"/davcoged/modifyItem/" + index._id}>
               <button>Modifier</button>
               </Link>
@@ -96,6 +94,8 @@ export default function Home() {
               >
                 supprimer
               </button>
+
+              </div>
             </div>
           ))
         ) : (

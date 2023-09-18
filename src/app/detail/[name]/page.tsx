@@ -19,7 +19,7 @@ export default function detail() {
   // const [pictureActual, setModifyPicture] = useState(0);
   const params = useParams();
   const [item, setItem] = useState<Card | null>();
-  const ID_URL: string = params.name;
+  const ID_URL = params.name;
 
     //// USEFFECT => FRONT ALIM 
     useEffect(() => {

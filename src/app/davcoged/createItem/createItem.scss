@@ -6,3 +6,15 @@
         background-color: green;
     }
 }
+
+form{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    padding: 20px;
+}
+
+.contact-container__input{
+    display: flex;
+    flex-direction: column;
+}
